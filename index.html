@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#087f7b">
+   <link rel="stylesheet" href="./app.css">
+  <script src="./theme.js" defer></script>
+  <title>JobHub</title>
+</head>
+<body>
+  <div class="app-shell">
+    <header class="app-header">
+      <div class="app-header-inner">
+        <h1 class="app-title"><a href="landing.html"><span class="app-brand-mark">BM</span><span>JobHub<small>by Binary Minds</small></span></a></h1>
+        <div class="app-tabs" role="tablist" aria-label="Main views">
+          <a class="app-tab" href="landing.html">Home</a>
+          <button type="button" role="tab" aria-selected="true" class="app-tab active" data-view="jobs">Jobs</button>
+          <button type="button" role="tab" aria-selected="false" class="app-tab" data-view="coach">AI Coach</button>
+          <button id="themeToggle" type="button" class="theme-toggle" aria-label="Toggle dark mode" aria-pressed="false">
+            <span class="theme-icon">Moon</span>
+          </button>
+        </div>
+      </div>
+    </header>
+    <main class="app-main">
+      <section class="job-list-view" id="jobsView" aria-labelledby="jobs-heading">
+        <div class="job-list-intro">
+          <p class="eyebrow">Find your next move</p>
+          <h2 id="jobs-heading">Open roles, matched to your momentum.</h2>
+          <p>Search across growing teams and use the AI tools on each listing to prepare your application.</p>
+        </div>
+        <label class="job-search"><span>Search jobs</span><input id="searchInput" type="search" placeholder="Company, role, location, or skill"></label>
+        <div id="filterToolbar" class="filter-toolbar" aria-label="Filter jobs"></div>
+        <p id="resultsCount" class="results-count"></p>
+        <div id="jobGrid" class="job-grid"></div>
+      </section>
+      <section class="coach-view" id="coachView" aria-labelledby="coach-heading" hidden>
+        <div class="job-list-intro"><p class="eyebrow">Your application sidekick</p><h2 id="coach-heading">Turn uncertainty into a better next step.</h2><p>Paste your CV and get focused feedback for your next Senior Frontend role.</p></div>
+        <div class="coach-panel">
+          <label class="coach-label" for="cvInput">Your CV or resume</label>
+          <div class="upload-row">
+            <input id="cvFile" class="file-input" type="file" accept=".txt,.pdf,.doc,.docx,text/plain,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document">
+            <label class="upload-button" for="cvFile">Upload CV</label>
+            <span id="fileName" class="file-name">No file selected</span>
+          </div>
+          <p id="fileMessage" class="file-message" hidden></p>
+          <textarea id="cvInput" class="coach-textarea" rows="12" placeholder="Paste your full CV or resume here..."></textarea>
+          <button id="analyzeButton" type="button" class="coach-button" disabled>Analyze My CV</button>
+          <p id="coachError" class="coach-error" role="alert" hidden></p>
+          <div id="coachResult" class="coach-result" hidden></div>
+        </div>
+        <div class="coach-panel career-assistant-panel">
+          <div class="assistant-heading">
+            <p class="eyebrow">Career guidance</p>
+            <h3>AI Career Assistant</h3>
+            <p>Get practical advice for your next move, skills, interviews, or applications.</p>
+          </div>
+          <div class="assistant-fields">
+            <label class="coach-label" for="careerRole">Target role
+              <input id="careerRole" class="assistant-input" type="text" placeholder="e.g. Product Designer">
+            </label>
+            <label class="coach-label" for="careerTopic">What do you need help with?
+              <select id="careerTopic" class="assistant-input">
+                <option value="career roadmap">Career roadmap</option>
+                <option value="skills to learn">Skills to learn</option>
+                <option value="interview preparation">Interview preparation</option>
+                <option value="job application advice">Job application advice</option>
+              </select>
+            </label>
+          </div>
+          <label class="coach-label" for="careerQuestion">Your question
+            <textarea id="careerQuestion" class="assistant-textarea" rows="4" placeholder="Ask something like: How can I become job-ready in six months?"></textarea>
+          </label>
+          <button id="careerButton" type="button" class="coach-button">Ask Career Assistant</button>
+          <p id="careerError" class="coach-error" role="alert" hidden></p>
+          <div id="careerResult" class="coach-result" hidden></div>
+        </div>
+      </section>
+    </main>
+  </div>
+  <script src="./config.js"></script>
+  <script type="module" src="./script.js"></script>
+</body>
+</html>

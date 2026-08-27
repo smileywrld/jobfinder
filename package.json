@@ -1,0 +1,20 @@
+{
+  "name": "job-listings-platform",
+  "version": "1.0.0",
+  "description": "A comprehensive job listings platform with AI-powered CV matching and company insights",
+  "type": "module",
+  "scripts": {
+    "dev": "python -m http.server 8000",
+    "serve": "python -m http.server 8000"
+  },
+  "keywords": [
+    "job-listings",
+    "ai",
+    "gemini",
+    "dark-mode",
+    "job-search"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "dependencies": {}
+}
